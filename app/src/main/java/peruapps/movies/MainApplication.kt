@@ -4,6 +4,8 @@ import android.app.Application
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import peruapps.movies.data.di.dataModule
+import peruapps.movies.domain.di.domainModule
+import peruapps.movies.ui.auth.di.authModule
 
 class MainApplication : Application() {
 
@@ -15,7 +17,7 @@ class MainApplication : Application() {
     private fun initKoin() {
         startKoin {
             androidContext(this@MainApplication)
-            modules(dataModule)
+            modules(listOf(dataModule, domainModule, authModule))
         }
     }
 }

@@ -1,4 +1,4 @@
-package peruapps.movies.data
+package peruapps.movies.data.net
 
 import com.google.gson.JsonObject
 import okhttp3.OkHttpClient
@@ -6,7 +6,8 @@ import okhttp3.logging.HttpLoggingInterceptor
 import peruapps.movies.BuildConfig
 import peruapps.movies.data.model.AuthBody
 import peruapps.movies.data.model.AuthResponse
-import peruapps.movies.data.model.Response
+import peruapps.movies.data.model.BaseResponse
+import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
@@ -15,7 +16,7 @@ import java.util.concurrent.TimeUnit
 interface RestApi {
 
     @POST("v1/auth/login")
-    suspend fun auth(@Body authBody: AuthBody): Response<AuthResponse>
+    suspend fun auth(@Body authBody: AuthBody): Response<BaseResponse<AuthResponse>>
 
     @GET("v1/movies")
     suspend fun getMovies(): JsonObject

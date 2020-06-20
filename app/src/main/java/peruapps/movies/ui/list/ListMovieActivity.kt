@@ -1,14 +1,12 @@
-package peruapps.movies.ui
+package peruapps.movies.ui.list
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import peruapps.movies.R
 
-class AuthActivity : AppCompatActivity() {
-
-
+class ListMovieActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_auth)
+        setContentView(R.layout.activity_list_movie)
     }
 }

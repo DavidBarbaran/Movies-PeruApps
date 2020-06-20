@@ -10,4 +10,9 @@
         <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
     </style>
 
+    <style name="TextErrorStyle">
+        <item name="fontFamily">@font/quicksand_light</item>
+        <item name="android:textSize">11sp</item>
+    </style>
+
 </resources>
