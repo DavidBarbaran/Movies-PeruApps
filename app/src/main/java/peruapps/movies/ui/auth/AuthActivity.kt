@@ -9,8 +9,6 @@ import org.koin.core.parameter.parametersOf
 import peruapps.movies.R
 
 import peruapps.movies.databinding.ActivityAuthBinding
-import peruapps.movies.ui.AuthState
-import peruapps.movies.ui.ScreenState
 import peruapps.movies.ui.dialog.MessageDialog
 import peruapps.movies.ui.navigator.Navigator
 
@@ -38,7 +36,7 @@ class AuthActivity : AppCompatActivity() {
 
     private fun setViewModel() {
         viewModel.apply {
-            screenStateLiveData.observe(::getLifecycle, ::observerScreenState)
+            authScreenStateLiveData.observe(::getLifecycle, ::observerScreenState)
             authStateLiveData.observe(::getLifecycle, ::observerAuthState)
             showMessageErrorLiveData.observe(::getLifecycle, ::observerShowError)
         }
@@ -46,17 +44,17 @@ class AuthActivity : AppCompatActivity() {
 
     /** Observers **/
 
-    private fun observerScreenState(screenState: ScreenState) {
-        when (screenState) {
-            ScreenState.Loading -> {
+    private fun observerScreenState(authScreenState: AuthScreenState) {
+        when (authScreenState) {
+            AuthScreenState.Loading -> {
                 Log.e("ScreenState", "Loading")
                 binding.loadingView.visibility = View.VISIBLE
             }
-            ScreenState.NotLoading -> {
+            AuthScreenState.NotLoading -> {
                 Log.e("ScreenState", "NotLoading")
                 binding.loadingView.visibility = View.GONE
             }
-            ScreenState.Success -> {
+            AuthScreenState.Success -> {
                 Log.e("ScreenState", "Success")
                 navigator.goToList()
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)

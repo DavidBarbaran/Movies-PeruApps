@@ -30,10 +30,12 @@ class SplashActivity : AppCompatActivity() {
             SplashScreenState.AuthRequired -> {
                 navigator.goToAuth()
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+                finish()
             }
             SplashScreenState.AuthNotRequired -> {
                 navigator.goToList()
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+                finish()
             }
         }
     }

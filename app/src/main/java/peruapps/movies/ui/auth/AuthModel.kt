@@ -1,4 +1,4 @@
-package peruapps.movies.ui
+package peruapps.movies.ui.auth
 
 import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable

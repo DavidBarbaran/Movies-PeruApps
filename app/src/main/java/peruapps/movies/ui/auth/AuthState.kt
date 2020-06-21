@@ -1,4 +1,4 @@
-package peruapps.movies.ui
+package peruapps.movies.ui.auth
 
 sealed class AuthState {
     object ErrorDisabled : AuthState()
