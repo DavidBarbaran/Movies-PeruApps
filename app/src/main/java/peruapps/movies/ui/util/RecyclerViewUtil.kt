@@ -4,8 +4,6 @@ import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-
-
 inline fun RecyclerView.onEndless(crossinline onEndless: () -> Unit) {
 
     var pastVisiblesItems: Int

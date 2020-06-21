@@ -3,12 +3,21 @@ package peruapps.movies.ui.splash
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import org.koin.android.ext.android.inject
+import org.koin.core.parameter.parametersOf
 import peruapps.movies.R
+import peruapps.movies.databinding.ActivitySplashBinding
 import peruapps.movies.ui.navigator.Navigator
 
 class SplashActivity : AppCompatActivity() {
 
     private val viewModel: SplashViewModel by inject()
+
+    private val binding: ActivitySplashBinding by inject {
+        parametersOf(
+            this,
+            R.layout.activity_splash
+        )
+    }
 
     private val navigator: Navigator by inject()
 

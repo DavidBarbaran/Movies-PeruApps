@@ -12,7 +12,7 @@ val authModule = module {
 
     viewModel { AuthViewModel(get()) }
 
-    single<ActivityAuthBinding> { (activity: Activity, @LayoutRes layout: Int) ->
+    factory<ActivityAuthBinding> { (activity: Activity, @LayoutRes layout: Int) ->
         DataBindingUtil.setContentView(
             activity,
             layout

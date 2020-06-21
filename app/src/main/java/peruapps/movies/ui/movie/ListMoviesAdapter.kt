@@ -1,13 +1,15 @@
 package peruapps.movies.ui.movie
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import peruapps.movies.databinding.ItemMovieBinding
 
-class ListMoviesAdapter : RecyclerView.Adapter<ListMoviesAdapter.ListMoviesViewHolder>() {
+class ListMoviesAdapter(private val onClickItemListener: OnClickItemListener) :
+    RecyclerView.Adapter<ListMoviesAdapter.ListMoviesViewHolder>() {
 
-    var list: MutableList<MovieModel>? = null
+    private var list: MutableList<MovieModel>? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ListMoviesViewHolder(
         ItemMovieBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -27,12 +29,21 @@ class ListMoviesAdapter : RecyclerView.Adapter<ListMoviesAdapter.ListMoviesViewH
         notifyItemRangeInserted(list?.size ?: 0, movies.size)
     }
 
+    fun onClickItem(view: View, movieModel: MovieModel) {
+        onClickItemListener.onClickItem(view, movieModel)
+    }
+
     inner class ListMoviesViewHolder(private val binding: ItemMovieBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(movieModel: MovieModel) {
             binding.movie = movieModel
+            binding.adapter = this@ListMoviesAdapter
             binding.executePendingBindings()
         }
+    }
+
+    interface OnClickItemListener {
+        fun onClickItem(view: View, movie: MovieModel)
     }
 }

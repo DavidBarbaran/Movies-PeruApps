@@ -2,6 +2,7 @@ package peruapps.movies.ui.movie
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.PagerSnapHelper
 import org.koin.android.ext.android.inject
@@ -11,7 +12,7 @@ import peruapps.movies.databinding.ActivityListMovieBinding
 import peruapps.movies.ui.navigator.Navigator
 import peruapps.movies.ui.util.onEndless
 
-class ListMovieActivity : AppCompatActivity() {
+class ListMovieActivity : AppCompatActivity(), ListMoviesAdapter.OnClickItemListener {
 
     private val viewModel: ListMovieViewModel by inject()
     private val binding: ActivityListMovieBinding by inject {
@@ -22,7 +23,7 @@ class ListMovieActivity : AppCompatActivity() {
     }
     private val navigator: Navigator by inject()
 
-    private val adapter = ListMoviesAdapter()
+    private val adapter: ListMoviesAdapter by inject { parametersOf(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,5 +56,9 @@ class ListMovieActivity : AppCompatActivity() {
     private fun observerMovies(movies: MutableList<MovieModel>) {
         Log.e("GET_DATA", "- ${movies.size}")
         adapter.addMovies(movies)
+    }
+
+    override fun onClickItem(view: View, movie: MovieModel) {
+        navigator.goToDetail(this, view, movie)
     }
 }
