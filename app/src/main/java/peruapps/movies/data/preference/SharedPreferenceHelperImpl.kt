@@ -1,4 +1,4 @@
-package peruapps.movies.data.session
+package peruapps.movies.data.preference
 
 import android.content.SharedPreferences
 import peruapps.movies.BuildConfig
@@ -14,7 +14,7 @@ class SharedPreferenceHelperImpl(
         }
 
     override var token: String
-        get() = sharedPreferences.getString(TOKEN, "") ?: ""
+        get() = "Bearer " + sharedPreferences.getString(TOKEN, "") ?: ""
         set(value) {
             sharedPreferences.edit().putString(TOKEN, value).apply()
         }

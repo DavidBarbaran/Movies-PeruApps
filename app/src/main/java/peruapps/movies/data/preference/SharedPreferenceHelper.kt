@@ -1,4 +1,4 @@
-package peruapps.movies.data.session
+package peruapps.movies.data.preference
 
 interface SharedPreferenceHelper {
 

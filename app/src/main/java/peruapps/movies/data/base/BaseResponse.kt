@@ -1,8 +1,8 @@
-package peruapps.movies.data.model
+package peruapps.movies.data.base
 
 import com.google.gson.annotations.SerializedName
 
-class BaseResponse<T>(
+open class BaseResponse<T>(
     @SerializedName("status")
     val status: Int,
     @SerializedName("message")

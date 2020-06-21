@@ -1,6 +1,6 @@
-package peruapps.movies.data.repository
+package peruapps.movies.data.session
 
-import peruapps.movies.data.session.SharedPreferenceHelper
+import peruapps.movies.data.preference.SharedPreferenceHelper
 import peruapps.movies.domain.session.SessionRepository
 
 class SessionRepositoryImpl(private val sharedPreferencesHelper: SharedPreferenceHelper) :

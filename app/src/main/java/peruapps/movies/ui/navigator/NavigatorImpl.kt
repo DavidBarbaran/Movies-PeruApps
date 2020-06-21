@@ -3,7 +3,7 @@ package peruapps.movies.ui.navigator
 import android.content.Context
 import android.content.Intent
 import peruapps.movies.ui.auth.AuthActivity
-import peruapps.movies.ui.list.ListMovieActivity
+import peruapps.movies.ui.movie.ListMovieActivity
 
 class NavigatorImpl(private val context: Context) : Navigator {
 

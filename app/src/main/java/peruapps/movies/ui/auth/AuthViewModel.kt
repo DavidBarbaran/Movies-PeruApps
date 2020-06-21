@@ -9,22 +9,18 @@ import kotlinx.coroutines.launch
 import peruapps.movies.domain.auth.Auth
 import peruapps.movies.domain.auth.AuthUseCase
 import peruapps.movies.ui.util.isNotValidEmail
-import java.lang.Exception
 
 class AuthViewModel(private val authUseCase: AuthUseCase) : ViewModel() {
 
     private val _screenStateLiveData = MutableLiveData<AuthScreenState>()
-
     val authScreenStateLiveData: LiveData<AuthScreenState>
         get() = _screenStateLiveData
 
     private val _authStateLiveData = MutableLiveData<AuthState>()
-
     val authStateLiveData: LiveData<AuthState>
         get() = _authStateLiveData
 
     private val _showMessageErrorLiveData = MutableLiveData<String>()
-
     val showMessageErrorLiveData: LiveData<String>
         get() = _showMessageErrorLiveData
 
@@ -45,7 +41,8 @@ class AuthViewModel(private val authUseCase: AuthUseCase) : ViewModel() {
 
         _screenStateLiveData.value = AuthScreenState.Loading
         viewModelScope.launch(Dispatchers.IO) {
-            try {
+
+            runCatching {
                 authUseCase.auth(
                     Auth(
                         user.email,
@@ -55,10 +52,10 @@ class AuthViewModel(private val authUseCase: AuthUseCase) : ViewModel() {
                 launch(Dispatchers.Main) {
                     _screenStateLiveData.value = AuthScreenState.Success
                 }
-            } catch (ex: Exception) {
+            }.onFailure {
                 launch(Dispatchers.Main) {
                     _screenStateLiveData.value = AuthScreenState.NotLoading
-                    _showMessageErrorLiveData.value = ex.message
+                    _showMessageErrorLiveData.value = it.message
                 }
             }
         }

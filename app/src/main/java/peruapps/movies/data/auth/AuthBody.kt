@@ -1,4 +1,4 @@
-package peruapps.movies.data.model
+package peruapps.movies.data.auth
 
 import com.google.gson.annotations.SerializedName
 
