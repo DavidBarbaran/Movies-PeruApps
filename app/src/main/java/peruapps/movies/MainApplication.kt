@@ -6,6 +6,8 @@ import org.koin.core.context.startKoin
 import peruapps.movies.data.di.dataModule
 import peruapps.movies.domain.di.domainModule
 import peruapps.movies.ui.auth.di.authModule
+import peruapps.movies.ui.navigator.di.navigatorModule
+import peruapps.movies.ui.splash.di.splashModule
 
 class MainApplication : Application() {
 
@@ -17,7 +19,9 @@ class MainApplication : Application() {
     private fun initKoin() {
         startKoin {
             androidContext(this@MainApplication)
-            modules(listOf(dataModule, domainModule, authModule))
+            modules(listOf(dataModule, domainModule) + getPresentationModules())
         }
     }
+
+    private fun getPresentationModules() = listOf(navigatorModule, splashModule, authModule)
 }

@@ -1,6 +1,5 @@
 package peruapps.movies.ui.auth
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -13,7 +12,7 @@ import peruapps.movies.databinding.ActivityAuthBinding
 import peruapps.movies.ui.AuthState
 import peruapps.movies.ui.ScreenState
 import peruapps.movies.ui.dialog.MessageDialog
-import peruapps.movies.ui.list.ListMovieActivity
+import peruapps.movies.ui.navigator.Navigator
 
 class AuthActivity : AppCompatActivity() {
 
@@ -24,6 +23,7 @@ class AuthActivity : AppCompatActivity() {
             R.layout.activity_auth
         )
     }
+    private val navigator: Navigator by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,7 +58,7 @@ class AuthActivity : AppCompatActivity() {
             }
             ScreenState.Success -> {
                 Log.e("ScreenState", "Success")
-                startActivity(Intent(this, ListMovieActivity::class.java))
+                navigator.goToList()
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
                 finish()
             }
@@ -67,17 +67,17 @@ class AuthActivity : AppCompatActivity() {
 
     private fun observerAuthState(authState: AuthState) {
         when (authState) {
-            AuthState.EmailInvalid -> {
-                binding.emailInputLayout.isErrorEnabled = true
-                binding.emailInputLayout.error = "Enter a valid email"
-            }
-            AuthState.PasswordInvalid -> {
-                binding.passwordInputLayout.isErrorEnabled = true
-                binding.passwordInputLayout.error = "Enter a password"
-            }
             AuthState.ErrorDisabled -> {
                 binding.emailInputLayout.isErrorEnabled = false
                 binding.passwordInputLayout.isErrorEnabled = false
+            }
+            AuthState.EmailInvalid -> {
+                binding.emailInputLayout.isErrorEnabled = true
+                binding.emailInputLayout.error = getString(R.string.auth_email_error_message)
+            }
+            AuthState.PasswordInvalid -> {
+                binding.passwordInputLayout.isErrorEnabled = true
+                binding.passwordInputLayout.error = getString(R.string.auth_password_error_message)
             }
         }
     }
