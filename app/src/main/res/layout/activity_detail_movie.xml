@@ -2,13 +2,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.detail.DetailMovieActivity">
+    tools:context=".presentation.detail.DetailMovieActivity">
 
     <data class="ActivityDetailMovieMovieBinding">
 
         <variable
             name="viewModel"
-            type="peruapps.movies.ui.detail.DetailMovieViewModel" />
+            type="peruapps.movies.presentation.detail.DetailMovieViewModel" />
     </data>
 
     <LinearLayout

@@ -2,13 +2,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.movie.ListMovieActivity">
+    tools:context=".presentation.movie.ListMovieActivity">
 
     <data class="ActivityListMovieBinding">
 
         <variable
             name="viewModel"
-            type="peruapps.movies.ui.movie.ListMovieViewModel" />
+            type="peruapps.movies.presentation.movie.ListMovieViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -100,7 +100,7 @@
             android:layout_height="@dimen/size56"
             android:layout_marginStart="@dimen/dp32"
             android:layout_marginEnd="@dimen/dp32"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="@dimen/dp16"
             android:text="@string/list_movie_buy_ticket"
             app:cornerRadius="@dimen/dp8"
             app:layout_constraintBottom_toBottomOf="parent"

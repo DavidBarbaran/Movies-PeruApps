@@ -7,11 +7,11 @@
 
         <variable
             name="movie"
-            type="peruapps.movies.ui.movie.MovieModel" />
+            type="peruapps.movies.presentation.movie.MovieModel" />
 
         <variable
             name="adapter"
-            type="peruapps.movies.ui.movie.ListMoviesAdapter" />
+            type="peruapps.movies.presentation.movie.ListMoviesAdapter" />
     </data>
 
     <LinearLayout

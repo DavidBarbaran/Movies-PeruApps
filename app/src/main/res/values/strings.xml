@@ -13,6 +13,7 @@
 
     <string name="ok">Ok</string>
     <string name="error">Error</string>
+    <string name="retry">Retry</string>
     <string name="cancel">Cancel</string>
     <string name="logout_title">Sign off</string>
     <string name="logout_message">Are you sure you want to log out?</string>

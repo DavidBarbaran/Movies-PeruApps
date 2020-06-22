@@ -14,11 +14,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.detail.DetailMovieActivity"
+            android:name=".presentation.detail.DetailMovieActivity"
             android:screenOrientation="portrait"
             android:theme="@style/TranslucentAppTheme" />
         <activity
-            android:name=".ui.splash.SplashActivity"
+            android:name=".presentation.splash.SplashActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,10 +26,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.movie.ListMovieActivity"
+            android:name=".presentation.movie.ListMovieActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.auth.AuthActivity"
+            android:name=".presentation.auth.AuthActivity"
             android:screenOrientation="portrait" />
     </application>
 

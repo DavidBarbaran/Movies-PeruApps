@@ -9,6 +9,7 @@ import peruapps.movies.domain.auth.AuthRepository
 import peruapps.movies.domain.auth.AuthUseCase
 import peruapps.movies.domain.movie.GetMovieInteractor
 import peruapps.movies.domain.movie.GetMovieUseCase
+import peruapps.movies.domain.movie.MovieModelMapper
 import peruapps.movies.domain.movie.MovieRepository
 import peruapps.movies.domain.session.SessionRepository
 
@@ -29,4 +30,5 @@ val domainModule = module {
         )
     }
     factory<GetMovieUseCase> { GetMovieInteractor(get(), get()) }
+    factory { MovieModelMapper() }
 }

@@ -2,13 +2,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.auth.AuthActivity">
+    tools:context=".presentation.auth.AuthActivity">
 
     <data class="ActivityAuthBinding">
 
         <variable
             name="viewModel"
-            type="peruapps.movies.ui.auth.AuthViewModel" />
+            type="peruapps.movies.presentation.auth.AuthViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
