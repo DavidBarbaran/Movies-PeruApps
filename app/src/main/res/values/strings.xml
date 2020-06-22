@@ -10,6 +10,10 @@
     <string name="auth_password_error_message">Enter a password</string>
 
     <string name="ok">Ok</string>
+    <string name="error">Error</string>
+    <string name="cancel">Cancel</string>
+    <string name="logout_title">Sign off</string>
+    <string name="logout_message">Are you sure you want to log out?</string>
 
     <string name="movie_transition">movieTransition</string>
     <string name="list_movie_buy_ticket">Buy ticket</string>
@@ -28,4 +32,5 @@
     <string name="place_name4">Caitriona\nBalfe</string>
     <string name="place_rol4">Mollie</string>
     <string name="detail_title_cast"><![CDATA[Cast & Crew]]></string>
+    <string name="dialog_default_cancel">Cancel</string>
 </resources>

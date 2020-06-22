@@ -14,11 +14,11 @@ import peruapps.movies.ui.movie.MovieModel
 class NavigatorImpl(private val context: Context) : Navigator {
 
     override fun goToAuth() {
-        context.startActivity(Intent(context, AuthActivity::class.java))
+        context.startActivity(AuthActivity.getCallingIntent(context))
     }
 
     override fun goToList() {
-        context.startActivity(Intent(context, ListMovieActivity::class.java))
+        context.startActivity(ListMovieActivity.getCallingIntent(context))
     }
 
     override fun goToDetail(activity: Activity, view: View, movie: MovieModel) {

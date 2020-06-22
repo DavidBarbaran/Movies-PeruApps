@@ -1,5 +1,7 @@
 package peruapps.movies.ui.auth
 
+import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -7,8 +9,8 @@ import android.view.View
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 import peruapps.movies.R
-
 import peruapps.movies.databinding.ActivityAuthBinding
+import peruapps.movies.ui.detail.DetailMovieActivity
 import peruapps.movies.ui.dialog.MessageDialog
 import peruapps.movies.ui.navigator.Navigator
 
@@ -81,6 +83,18 @@ class AuthActivity : AppCompatActivity() {
     }
 
     private fun observerShowError(message: String) {
-        MessageDialog.Builder(this).setMessage(message).show()
+        MessageDialog.Builder(this)
+            .setMessage(message)
+            .setTitle(getString(R.string.error))
+            .setOnClickAccept { it.dismiss() }
+            .show()
+    }
+
+    companion object {
+        fun getCallingIntent(context: Context): Intent {
+            return Intent(context, AuthActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            }
+        }
     }
 }

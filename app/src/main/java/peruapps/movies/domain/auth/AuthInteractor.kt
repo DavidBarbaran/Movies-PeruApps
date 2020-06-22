@@ -22,4 +22,9 @@ class AuthInteractor(
     override suspend fun isAuth(): Boolean {
         return sessionRepository.isLogin()
     }
+
+    override suspend fun logout() {
+        sessionRepository.saveIsLogin(false)
+        sessionRepository.saveToken(null)
+    }
 }

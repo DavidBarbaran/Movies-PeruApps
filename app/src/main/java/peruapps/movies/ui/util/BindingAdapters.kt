@@ -5,10 +5,22 @@ import androidx.appcompat.widget.AppCompatImageView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.signature.ObjectKey
+import peruapps.movies.R
 import peruapps.movies.ui.movie.MovieModel
 
 @BindingAdapter("image")
 fun loadImage(
+    view: AppCompatImageView,
+    movie: MovieModel
+) {
+    Glide.with(view.context).load(movie.detail.image).dontTransform()
+        .placeholder(R.drawable.placeholder)
+        .signature(ObjectKey(movie.id.toString()))
+        .into(view)
+}
+
+@BindingAdapter("img")
+fun loadImageCache(
     view: AppCompatImageView,
     movie: MovieModel
 ) {

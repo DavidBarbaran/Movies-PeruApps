@@ -8,28 +8,39 @@
     android:orientation="vertical">
 
     <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/titleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="28dp"
+        android:gravity="center"
+        android:text="Error"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:fontFamily="@font/quicksand_bold" />
+
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/messageText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="16dp"
-        android:textSize="16sp"
-        android:fontFamily="@font/quicksand_light"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="@font/quicksand_regular"
         android:gravity="center"
         android:textColor="@android:color/black"
+        android:textSize="16sp"
         tools:text="Try again" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/acceptButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginStart="@dimen/dp20"
+        android:layout_marginTop="@dimen/dp20"
+        android:layout_marginEnd="@dimen/dp20"
         android:layout_marginBottom="20dp"
         android:layout_weight="1"
-        android:textSize="16sp"
         android:fontFamily="@font/quicksand_medium"
         android:text="Ok"
         android:textAllCaps="false"

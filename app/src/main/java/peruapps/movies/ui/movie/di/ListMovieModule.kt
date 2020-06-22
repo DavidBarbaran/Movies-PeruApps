@@ -11,7 +11,7 @@ import peruapps.movies.ui.movie.ListMoviesAdapter
 import peruapps.movies.ui.movie.MovieModelMapper
 
 val listMovieModule = module {
-    viewModel { ListMovieViewModel(get(), get()) }
+    viewModel { ListMovieViewModel(get(), get(), get()) }
 
     factory<ActivityListMovieBinding> { (activity: Activity, @LayoutRes layout: Int) ->
         DataBindingUtil.setContentView(

@@ -6,19 +6,24 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import peruapps.movies.domain.auth.AuthUseCase
 import peruapps.movies.domain.movie.GetMovieUseCase
 
 class ListMovieViewModel(
     private val getMovieUseCase: GetMovieUseCase,
-    private val movieModelMapper: MovieModelMapper
+    private val movieModelMapper: MovieModelMapper,
+    private val authUseCase: AuthUseCase
 ) : ViewModel() {
 
     private val _movieLiveData = MutableLiveData<MutableList<MovieModel>>()
-
     val movieLiveData: LiveData<MutableList<MovieModel>>
         get() = _movieLiveData
 
-    var page = 0
+    private val _logoutLiveData = MutableLiveData<Any>()
+    val logoutLiveData: LiveData<Any>
+        get() = _logoutLiveData
+
+    private var page = 0
 
     fun getMovies() {
         viewModelScope.launch(Dispatchers.IO) {
@@ -26,6 +31,15 @@ class ListMovieViewModel(
             page++
             launch(Dispatchers.Main) {
                 _movieLiveData.value = movieModelMapper.parse(movies)
+            }
+        }
+    }
+
+    fun logout() {
+        viewModelScope.launch(Dispatchers.IO) {
+            authUseCase.logout()
+            launch(Dispatchers.Main) {
+                _logoutLiveData.value = true
             }
         }
     }

@@ -52,6 +52,7 @@
             </LinearLayout>
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/logoutButton"
                 android:layout_width="@dimen/size40"
                 android:layout_height="@dimen/size40"
                 android:layout_marginEnd="@dimen/dp32"

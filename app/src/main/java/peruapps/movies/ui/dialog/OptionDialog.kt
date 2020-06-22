@@ -5,12 +5,13 @@ import android.content.Context
 import android.os.Bundle
 import android.view.ViewGroup
 import android.view.Window
-import kotlinx.android.synthetic.main.dialog_message.*
+import kotlinx.android.synthetic.main.dialog_option.*
 import peruapps.movies.R
 
-class MessageDialog(context: Context) : Dialog(context) {
+class OptionDialog(context: Context) : Dialog(context) {
 
     var onClickAccept: OnClickAccept? = null
+    var onClickCancel: OnClickCancel? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,13 +21,16 @@ class MessageDialog(context: Context) : Dialog(context) {
 
     private fun setDialog() {
         requestWindowFeature(Window.FEATURE_NO_TITLE)
-        setContentView(R.layout.dialog_message)
+        setContentView(R.layout.dialog_option)
         window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
     }
 
     private fun setClick() {
         acceptButton.setOnClickListener {
             onClickAccept?.onClickAccept(this)
+        }
+        cancelButton.setOnClickListener {
+            onClickCancel?.onClickCancel(this)
         }
     }
 
@@ -42,12 +46,18 @@ class MessageDialog(context: Context) : Dialog(context) {
         acceptButton.text = text
     }
 
+    fun setNegativeButtonText(text: String) {
+        cancelButton.text = text
+    }
+
     class Builder(val context: Context) {
 
         private var title = ""
         private var message = ""
         private var positiveButtonText = context.getString(R.string.ok)
+        private var negativeButtonText = context.getString(R.string.cancel)
         var onClickAccept: OnClickAccept? = null
+        var onClickCancel: OnClickCancel? = null
 
         fun setTitle(title: String) = apply {
             this.title = title
@@ -61,6 +71,9 @@ class MessageDialog(context: Context) : Dialog(context) {
             positiveButtonText = text
         }
 
+        fun setNegativeButtonText(text: String) = apply {
+            negativeButtonText = text
+        }
 
         inline fun setOnClickAccept(crossinline onClickDownload: (dialog: Dialog) -> Unit) =
             apply {
@@ -71,17 +84,32 @@ class MessageDialog(context: Context) : Dialog(context) {
                 }
             }
 
+        inline fun setOnClickCancel(crossinline onClickCancel: (dialog: Dialog) -> Unit) =
+            apply {
+                this.onClickCancel = object : OnClickCancel {
+                    override fun onClickCancel(dialog: Dialog) {
+                        onClickCancel(dialog)
+                    }
+                }
+            }
+
         fun show() {
-            val dialog = MessageDialog(context)
+            val dialog = OptionDialog(context)
             dialog.show()
             dialog.setTitle(title)
             dialog.setMessage(message)
             dialog.setPositiveButtonText(positiveButtonText)
+            dialog.setNegativeButtonText(negativeButtonText)
             dialog.onClickAccept = onClickAccept
+            dialog.onClickCancel = onClickCancel
         }
     }
 
     interface OnClickAccept {
         fun onClickAccept(dialog: Dialog)
+    }
+
+    interface OnClickCancel {
+        fun onClickCancel(dialog: Dialog)
     }
 }
