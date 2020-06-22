@@ -20,9 +20,11 @@ Aplicación demo de películas para evaluación técnica en Perú Apps.
 
 :white_check_mark: Clean **code**
 
-[![](https://i.imgur.com/hqAmSG1.png)](https://youtu.be/zjANR00j2v0)
 
-[![](https://i.imgur.com/hkwCACZ.png)](https://firebasestorage.googleapis.com/v0/b/davidbarbarandev.appspot.com/o/iMovie-PeruApps.apk?alt=media&token=a6670457-8ae7-445d-8554-0c3e05bcf9b9)
+<a href="https://youtu.be/zjANR00j2v0"><img src="https://i.imgur.com/6kifBl4.png" width="277"/></a>
+
+<a href="https://firebasestorage.googleapis.com/v0/b/davidbarbarandev.appspot.com/o/iMovie-PeruApps.apk?alt=media&token=a6670457-8ae7-445d-8554-0c3e05bcf9b9"><img src="https://i.imgur.com/jMDgwCn.png" width="234"/></a>
+
 
 ## Comenzando
   
@@ -76,7 +78,7 @@ La capa de datos es la que se encarga de gestionar los datos locales y remotos d
 	- [Lottie](https://github.com/airbnb/lottie-android)
 
 - Arquitectura:
-	- [View Binding](https://developer.android.com/topic/libraries/view-binding)  
+	- [Data Binding](https://developer.android.com/topic/libraries/data-binding)
 	- [LiveData](https://developer.android.com/topic/libraries/architecture/livedata)  
 	- [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel)  
 
