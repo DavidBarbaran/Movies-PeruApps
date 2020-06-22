@@ -14,13 +14,14 @@ class SharedPreferenceHelperImpl(
         }
 
     override var token: String
-        get() = "Bearer " + sharedPreferences.getString(TOKEN, "") ?: ""
+        get() = "$BEARER ${sharedPreferences.getString(TOKEN, "")}"
         set(value) {
             sharedPreferences.edit().putString(TOKEN, value).apply()
         }
 
     companion object {
         const val PREFERENCE_NAME = BuildConfig.APPLICATION_ID
+        private const val BEARER = "Bearer"
         private const val IS_LOGIN = "is_login"
         private const val TOKEN = "token"
     }

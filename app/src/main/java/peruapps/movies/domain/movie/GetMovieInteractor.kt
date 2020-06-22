@@ -8,7 +8,6 @@ class GetMovieInteractor(
 ) : GetMovieUseCase {
 
     override suspend fun getMovies(page: Int): MutableList<Movie> {
-        val token = sessionRepository.getToken()
-        return movieRepository.getMovies(token, page)
+        return movieRepository.getMovies(sessionRepository.getToken(), page)
     }
 }

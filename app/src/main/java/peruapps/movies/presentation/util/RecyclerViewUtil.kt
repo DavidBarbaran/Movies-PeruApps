@@ -15,7 +15,7 @@ inline fun RecyclerView.onEndless(crossinline onEndless: () -> Unit) {
                 totalItemCount = mLayoutManager.itemCount
                 pastVisiblesItems = mLayoutManager.findLastCompletelyVisibleItemPosition()
 
-                if (pastVisiblesItems + 1 >= totalItemCount) {
+                if (pastVisiblesItems.plus(1) >= totalItemCount) {
                     onEndless()
                 }
             }
