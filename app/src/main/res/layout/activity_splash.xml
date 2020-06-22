@@ -16,6 +16,7 @@
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:id="@+id/logoView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -41,6 +42,16 @@
                 app:srcCompat="@drawable/ic_popcorn" />
 
         </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/splash_message"
+            android:textColor="@android:color/black"
+            app:fontFamily="@font/quicksand_light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/logoView" />
 
         <ProgressBar
             style="?android:attr/progressBarStyleHorizontal"

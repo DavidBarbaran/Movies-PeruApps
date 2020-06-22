@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">iMovie</string>
+    <string name="splash_message">for Perú Apps</string>
+
     <string name="auth_welcome">Welcome,</string>
     <string name="auth_sign_in">sign in to continue</string>
     <string name="auth_hint_email">Email</string>
