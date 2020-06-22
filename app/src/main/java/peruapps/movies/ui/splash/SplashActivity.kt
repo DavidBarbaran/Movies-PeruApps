@@ -34,6 +34,8 @@ class SplashActivity : AppCompatActivity() {
         }
     }
 
+    /** Observers **/
+
     private fun observerIsAuth(splashScreenState: SplashScreenState) {
         when (splashScreenState) {
             SplashScreenState.AuthRequired -> {

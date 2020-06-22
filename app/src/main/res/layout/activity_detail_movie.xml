@@ -79,7 +79,8 @@
                     android:text="@{viewModel.movie.detail.title}"
                     android:textColor="@android:color/black"
                     android:textSize="@dimen/sp20"
-                    app:fontFamily="@font/quicksand_bold" />
+                    app:fontFamily="@font/quicksand_bold"
+                    tools:text="Title" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
@@ -166,7 +167,8 @@
                     android:text="@{viewModel.movie.detail.description}"
                     android:textColor="@android:color/black"
                     android:textSize="@dimen/sp16"
-                    app:fontFamily="@font/quicksand_regular" />
+                    app:fontFamily="@font/quicksand_regular"
+                    tools:text="Description" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"

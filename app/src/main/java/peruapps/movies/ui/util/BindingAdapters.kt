@@ -13,7 +13,7 @@ fun loadImage(
     view: AppCompatImageView,
     movie: MovieModel
 ) {
-    Glide.with(view.context).load(movie.detail.image).dontTransform()
+    Glide.with(view.context).load(movie.detail?.image).dontTransform()
         .placeholder(R.drawable.placeholder)
         .signature(ObjectKey(movie.id.toString()))
         .into(view)
@@ -24,7 +24,7 @@ fun loadImageCache(
     view: AppCompatImageView,
     movie: MovieModel
 ) {
-    Glide.with(view.context).load(movie.detail.image).dontTransform()
+    Glide.with(view.context).load(movie.detail?.image).dontTransform()
         .signature(ObjectKey(movie.id.toString()))
         .into(view)
 }

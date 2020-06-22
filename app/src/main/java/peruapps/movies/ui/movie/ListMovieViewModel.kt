@@ -24,13 +24,18 @@ class ListMovieViewModel(
         get() = _logoutLiveData
 
     private var page = 0
+    private var loading = false
 
     fun getMovies() {
-        viewModelScope.launch(Dispatchers.IO) {
-            val movies = getMovieUseCase.getMovies(page)
-            page++
-            launch(Dispatchers.Main) {
-                _movieLiveData.value = movieModelMapper.parse(movies)
+        if (!loading) {
+            loading = true
+            viewModelScope.launch(Dispatchers.IO) {
+                val movies = getMovieUseCase.getMovies(page)
+                page++
+                launch(Dispatchers.Main) {
+                    _movieLiveData.value = movieModelMapper.parse(movies)
+                }
+                loading = false
             }
         }
     }

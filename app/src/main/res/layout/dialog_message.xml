@@ -12,24 +12,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="@dimen/dp28"
         android:gravity="center"
-        android:text="Error"
         android:textColor="@android:color/black"
-        android:textSize="16sp"
-        app:fontFamily="@font/quicksand_bold" />
+        android:textSize="@dimen/sp16"
+        app:fontFamily="@font/quicksand_bold"
+        tools:text="Error" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/messageText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginStart="@dimen/dp20"
+        android:layout_marginTop="@dimen/dp12"
+        android:layout_marginEnd="@dimen/dp20"
         android:fontFamily="@font/quicksand_regular"
         android:gravity="center"
         android:textColor="@android:color/black"
-        android:textSize="16sp"
+        android:textSize="@dimen/sp16"
         tools:text="Try again" />
 
     <com.google.android.material.button.MaterialButton
@@ -39,11 +39,10 @@
         android:layout_marginStart="@dimen/dp20"
         android:layout_marginTop="@dimen/dp20"
         android:layout_marginEnd="@dimen/dp20"
-        android:layout_marginBottom="20dp"
-        android:layout_weight="1"
+        android:layout_marginBottom="@dimen/dp20"
         android:fontFamily="@font/quicksand_medium"
-        android:text="Ok"
         android:textAllCaps="false"
-        app:cornerRadius="8dp" />
+        app:cornerRadius="@dimen/dp8"
+        tools:text="Ok" />
 
 </LinearLayout>

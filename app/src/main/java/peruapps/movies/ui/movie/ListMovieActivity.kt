@@ -3,7 +3,6 @@ package peruapps.movies.ui.movie
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.PagerSnapHelper
@@ -18,12 +17,14 @@ import peruapps.movies.ui.util.onEndless
 class ListMovieActivity : AppCompatActivity(), ListMoviesAdapter.OnClickItemListener {
 
     private val viewModel: ListMovieViewModel by inject()
+
     private val binding: ActivityListMovieBinding by inject {
         parametersOf(
             this,
             R.layout.activity_list_movie
         )
     }
+
     private val navigator: Navigator by inject()
 
     private val adapter: ListMoviesAdapter by inject { parametersOf(this) }
@@ -46,8 +47,10 @@ class ListMovieActivity : AppCompatActivity(), ListMoviesAdapter.OnClickItemList
         PagerSnapHelper().attachToRecyclerView(binding.moviesRecycler)
         binding.moviesRecycler.adapter = adapter
         binding.moviesRecycler.onEndless {
+            adapter.showShimmerPaginate()
             viewModel.getMovies()
         }
+        adapter.showShimmerData()
     }
 
     private fun setViewModel() {
@@ -72,8 +75,9 @@ class ListMovieActivity : AppCompatActivity(), ListMoviesAdapter.OnClickItemList
         }
     }
 
+    /** Observers **/
+
     private fun observerMovies(movies: MutableList<MovieModel>) {
-        Log.e("GET_DATA", "- ${movies.size}")
         adapter.addMovies(movies)
     }
 

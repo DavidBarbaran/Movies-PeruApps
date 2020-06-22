@@ -4,13 +4,11 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 import peruapps.movies.R
 import peruapps.movies.databinding.ActivityAuthBinding
-import peruapps.movies.ui.detail.DetailMovieActivity
 import peruapps.movies.ui.dialog.MessageDialog
 import peruapps.movies.ui.navigator.Navigator
 
@@ -49,15 +47,12 @@ class AuthActivity : AppCompatActivity() {
     private fun observerScreenState(authScreenState: AuthScreenState) {
         when (authScreenState) {
             AuthScreenState.Loading -> {
-                Log.e("ScreenState", "Loading")
                 binding.loadingView.visibility = View.VISIBLE
             }
             AuthScreenState.NotLoading -> {
-                Log.e("ScreenState", "NotLoading")
                 binding.loadingView.visibility = View.GONE
             }
             AuthScreenState.Success -> {
-                Log.e("ScreenState", "Success")
                 navigator.goToList()
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
                 finish()
